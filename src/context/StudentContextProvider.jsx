@@ -2,24 +2,18 @@ import { createContext, useEffect, useReducer } from "react";
 const initialData = [
     {
         "id": "s1",
-        "fullName": "Salman",
-        "marks": "75",
-        "feePaid": "Yes"
-    },
-    {
-        "id": "s2",
         "fullName": "Jane Smith",
         "marks": "45",
         "feePaid": "No"
     },
     {
-        "id": "s3",
+        "id": "s2",
         "fullName": "Sam Wilson",
         "marks": "78",
         "feePaid": "Yes"
     },
     {
-        "id": "s4",
+        "id": "s3",
         "fullName": "Alice Johnson",
         "marks": "92",
         "feePaid": "Yes"
