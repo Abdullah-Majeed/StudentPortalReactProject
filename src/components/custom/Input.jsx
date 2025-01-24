@@ -5,8 +5,8 @@ export default function Input({ label, id, type, options, ...props }) {
                 <>
                     <label htmlFor={id}>{label}</label>
                     <div className="radio-group">
-                        {options.map((option, index) => (
-                            <label key={index}>
+                        {options.map((option) => (
+                            <label key={option.value}>
                                 <input
                                     min={0}
                                     max={100}

@@ -1,32 +1,19 @@
-import Button from "./custom/Button";
-import Heading from "./custom/Heading";
-import Input from "./custom/Input";
+import { useContext, useActionState } from "react";
+import { StudentContext } from "../context/StudentContextProvider";
+import Form from "./custom/Form";
+
 
 export default function Header() {
-    function handleSubmit(e) {
-        e.preventDefault();
+    const { addStudent } = useContext(StudentContext);
+
+    function studentAction(prevState, formData) {
+        const student = Object.fromEntries(formData.entries());
+        addStudent(student);
     }
+    const [formState, formAction, isLoading] = useActionState(studentAction, null);
     return (
         <header id="main-header">
-
-            <form onSubmit={handleSubmit}>
-                <Heading label="Passing marks: " />
-                <Input label="Full Name: " type="text" id="full-name" />
-                <Input label="Marks: " type="number" id="marks" />
-                <Input
-                    type="radio"
-                    label="Fee Paid"
-                    id="feePaid"
-                    options={[
-                        { label: 'Yes', value: 'yes' },
-                        { label: 'No', value: 'no' },
-                    ]}
-                />
-                <div className="control">
-                    <label />
-                    <Button>Submit Data</Button>
-                </div>
-            </form>
+            <Form formState={formState} formAction={formAction} isLoading={isLoading} />
         </header>
     )
 }

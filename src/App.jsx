@@ -1,10 +1,10 @@
 import Button from "./components/custom/Button.jsx"
 import Header from "./components/Header.jsx"
 import StudentTable from "./components/StudentTable.jsx"
-
+import StudentContextProvider from "./context/StudentContextProvider.jsx"
 function App() {
   return (
-    <>
+    <StudentContextProvider>
       <Header />
       <div className="control">
         <label />
@@ -14,8 +14,7 @@ function App() {
         <label />
         <StudentTable />
       </div>
-
-    </>
+    </StudentContextProvider>
   )
 }
 
