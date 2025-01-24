@@ -1,14 +1,16 @@
 import Button from "./custom/Button";
+import Heading from "./custom/Heading";
 import Input from "./custom/Input";
 
 export default function Header() {
+    function handleSubmit(e) {
+        e.preventDefault();
+    }
     return (
         <header id="main-header">
-            <p>
-                <label>Passing Marks: </label>
-                <span>60/100</span>
-            </p>
-            <form>
+
+            <form onSubmit={handleSubmit}>
+                <Heading label="Passing marks: " />
                 <Input label="Full Name: " type="text" id="full-name" />
                 <Input label="Marks: " type="number" id="marks" />
                 <Input
